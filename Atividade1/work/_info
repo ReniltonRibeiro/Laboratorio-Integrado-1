@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/intelFPGA/18.1
+vRobo
+!s110 1711154466
+!i10b 1
+!s100 J2:z>jgDhLe2jYl=C;=WJ2
+ITU_Ek2Z:d[C>68Ga`5E>;3
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+Z1 dC:/LABIA2024/ModelSim/Atividade1
+w1711154409
+8C:/LABIA2024/ModelSim/Atividade1/Robo.v
+FC:/LABIA2024/ModelSim/Atividade1/Robo.v
+L0 1
+Z2 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1711154466.000000
+!s107 C:/LABIA2024/ModelSim/Atividade1/Robo.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/LABIA2024/ModelSim/Atividade1/Robo.v|
+!i113 1
+Z3 o-work work
+Z4 tCvgOpt 0
+n@robo
+vRobo_TB
+!s110 1711152502
+!i10b 1
+!s100 TL;TYHK<V14ZF<AT^@L[n2
+Ie]l<RVlbZHKaOoz`FBmXH1
+R0
+R1
+w1710396438
+8C:/LABIA2024/ModelSim/Atividade1/Robo_TB.v
+FC:/LABIA2024/ModelSim/Atividade1/Robo_TB.v
+L0 3
+R2
+r1
+!s85 0
+31
+!s108 1711152502.000000
+!s107 C:/LABIA2024/ModelSim/Atividade1/Robo_TB.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/LABIA2024/ModelSim/Atividade1/Robo_TB.v|
+!i113 1
+R3
+R4
+n@robo_@t@b

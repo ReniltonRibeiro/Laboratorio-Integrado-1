@@ -1,0 +1,73 @@
+module Robo(
+    input wire clock,      // Pulso de clock
+    input wire reset,      // Sinal de reset
+    input wire head,       // Sensor de parede à frente
+    input wire left,       // Sensor de parede à esquerda
+    output reg avancar,    // Sinal para mover o robô
+    output reg girar       // Sinal para girar o robô
+);
+
+// Estados da FSM
+typedef enum {AVANCAR, ROTACIONAR, ACOMPANHAR_MURO} state_t;
+
+// Declaração dos registradores da FSM
+reg [1:0] state, next_state;
+
+// Lógica de controle da FSM
+always @(posedge clock or posedge reset) begin
+    if (reset)
+        state <= AVANCAR;
+    else
+        state <= next_state;
+end
+
+// Lógica para determinar o próximo estado
+always @(*) begin
+    case(state)
+        AVANCAR: begin
+            if (head) // Parede à frente
+                next_state = ROTACIONAR;
+            else
+                next_state = AVANCAR;
+        end
+        ROTACIONAR: begin
+            if (left) // Parede à esquerda
+                next_state = ACOMPANHAR_MURO;
+            else
+                next_state = ROTACIONAR;
+        end
+        ACOMPANHAR_MURO: begin
+            if (head) // Parede à frente
+                next_state = ROTACIONAR;
+            else if (!left) // Sem parede à esquerda
+                next_state = AVANCAR;
+            else
+                next_state = ACOMPANHAR_MURO;
+        end
+        default: next_state = AVANCAR;
+    endcase
+end
+
+// Lógica para mover e girar o robô com base no estado atual
+always @(*) begin
+    case(state)
+        AVANCAR: begin
+            avancar = 1;
+            girar = 0;
+        end
+        ROTACIONAR: begin
+            avancar = 0;
+            girar = 1;
+        end
+        ACOMPANHAR_MURO: begin
+            avancar = 1;
+            girar = 0;
+        end
+        default: begin
+            avancar = 0;
+            girar = 0;
+        end
+    endcase
+end
+
+endmodule
